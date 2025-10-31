@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="app.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Gravity</title>
+</head>
+<body>
+  <canvas id="canvas1" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+  <canvas id="canvas2" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+
+  <div class="ui">
+    <div class="slider-group">
+      <label>X: <span id="xVal">100</span></label>
+      <input type="range" id="inputX">
+    </div>
+
+    <div class="slider-group">
+      <label>Y: <span id="yVal">100</span></label>
+      <input type="range" id="inputY">
+    </div>
+
+    <div class="slider-group">
+      <label>Vx: <span id="vxVal">10</span></label>
+      <input type="range" id="inputVx" min="-300" max="300" value="10">
+    </div>
+
+    <div class="slider-group">
+      <label>Vy: <span id="vyVal">0</span></label>
+      <input type="range" id="inputVy" min="-300" max="300" value="0">
+    </div>
+
+    <button id="startBtn">Start</button>
+  </div>
+
+  <script>
+    // update display values in real time
+    const sliders = ["inputX", "inputY", "inputVx", "inputVy"];
+    sliders.forEach(id => {
+      const slider = document.getElementById(id);
+      const display = document.getElementById(id.replace("input", "").toLowerCase() + "Val");
+      slider.addEventListener("input", () => {
+        display.textContent = slider.value;
+      });
+    });
+  </script>
+</body>
+</html>
