@@ -85,8 +85,8 @@ function draw(currentTime) {
   dx = sun.x - ball.x;
   dy = sun.y - ball.y;
   d = Math.sqrt(dx**2 + dy**2);
-  //g = 1000000 / (d**2) - 10000000/(d**3);
-  g = 1000000 / (d**2)
+  g = 1000000 / (d**2) - 10000000/(d**3);
+  //g = 1000000 / (d**2)
   dir_x = dx / d;
   dir_y = dy / d;
 
